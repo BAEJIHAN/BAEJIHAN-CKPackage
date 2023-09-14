@@ -597,6 +597,22 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "CatToPlayer" & State == PLAYERSTATE.SLIDE)
+        {
+            GameObject tempObj = collision.gameObject.transform.parent.gameObject;
+            tempObj.GetComponent<CatScript>().SetFreeCat();
+            UIMgrScript.Inst.SpawnHPUp(Pivot.transform.position);
+            GValue.PHP += 20;
+            if (GValue.PHP >= 100)
+            {
+                GValue.PHP = 100;
+            }
+            UIMgrScript.Inst.SetHPBar(GValue.MAXHP, GValue.PHP);
+        }
+    }
+
     void StaminaUpdate()
     {
         if(CurStamina>=MaxStamina)
