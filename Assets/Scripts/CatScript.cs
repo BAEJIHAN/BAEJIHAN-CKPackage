@@ -217,7 +217,12 @@ public class CatScript : MonoBehaviour
     {
         Ani.SetTrigger("Run");
         State = CATSTATE.RUN;
-        GetComponent<BoxCollider2D>().enabled = false;
+        BoxCollider2D[] tempBoxs=GetComponentsInChildren<BoxCollider2D>();
+        for(int i=0; i<tempBoxs.Length; i++)
+        {
+            tempBoxs[i].enabled = false;
+        }
+        
         transform.rotation = Quaternion.Euler(0, 180, 0);
         AClip = Resources.Load<AudioClip>("Sound/Misc/CatEscape");
         ASource.PlayOneShot(AClip);
