@@ -589,6 +589,10 @@ public class PlayerScript : MonoBehaviour
             tempObj.GetComponent<CatScript>().SetFreeCat();
             UIMgrScript.Inst.SpawnHPUp(Pivot.transform.position);
             GValue.PHP += 20;
+            if(GValue.PHP >= 100)
+            {
+                GValue.PHP = 100;
+            }
             UIMgrScript.Inst.SetHPBar(GValue.MAXHP, GValue.PHP);
         }
     }
