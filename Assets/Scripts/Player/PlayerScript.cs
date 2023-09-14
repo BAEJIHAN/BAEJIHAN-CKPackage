@@ -623,7 +623,8 @@ public class PlayerScript : MonoBehaviour
             PLAYERSTATE.AIRHURT1 == State ||
             PLAYERSTATE.AIRHURT2 == State ||
             PLAYERSTATE.AIRHURT3 == State ||
-            PLAYERSTATE.HURT==State)
+            PLAYERSTATE.HURT==State ||
+            PLAYERSTATE.DEATH==State)
         {
             return;
         }
