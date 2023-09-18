@@ -191,20 +191,20 @@ public class ImpScript : MonRootScript
 
         if (Mathf.Abs(Vector3.Dot(Vector3.down, Dir)) < DotAngle)
         {
-            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.up, Dir));
+            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.down, Dir));
             MoveAxis = Vector3.down;
         }
 
         if (Mathf.Abs(Vector3.Dot(Vector3.right, Dir)) < DotAngle)
         {
-            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.up, Dir));
+            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.right, Dir));
             MoveAxis = Vector3.right;
         }
 
-        if (Mathf.Abs(Vector3.Dot(Vector3.down, Dir)) < DotAngle)
+        if (Mathf.Abs(Vector3.Dot(Vector3.left, Dir)) < DotAngle)
         {
-            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.down, Dir));
-            MoveAxis = Vector3.down;
+            DotAngle = Mathf.Abs(Vector3.Dot(Vector3.left, Dir));
+            MoveAxis = Vector3.left;
         }
 
         Pivot.transform.position += MoveAxis * Time.deltaTime * Speed;
